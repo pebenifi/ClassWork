@@ -35,8 +35,9 @@ def image_mars():
                 </html>"""
 
 
-@app.route('/choice/<planet_name>', methods=["POST", "GET"])
-def promotion_image(planet_name):
+@app.route('/results/<nickname>/<int:level>/<float:rating>')
+def result(nickname, level, rating):
+    print(nickname, level, rating)
     return f"""<!doctype html>
                 <html lang="en">
                   <head>
@@ -45,16 +46,15 @@ def promotion_image(planet_name):
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
                     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
                     crossorigin="anonymous">
-                     <title>Привет, {planet_name}</title>
+                     <title>Результаты отбора</title>
                     <link rel="stylesheet" href="{url_for('static', filename='css/style.css')}">
                   </head>
                   <body>
-                    <h1>Привет, {planet_name}!</h1>
-                    <p class="alert alert-primary" role="alert">Эта планета близка к земле</p>
-                    <p class="alert alert-success" role="alert">На ней много необходимых ресурсов.</p>
-                    <p class="alert alert-secondary" role="alert">На ней есть вода и атмосфера.</p>
-                    <p class="alert alert-danger" role="alert">На ней есть небольшое магнитное поле</p>
-                    <p class="alert alert-warning" role="alert">Наконец, она просто красива!</p>
+                    <h1>Результаты отбора!</h1>
+                    <p class="alert alert-primary" role="alert">Претендента на участие {nickname}:</p>
+                    <p class="alert alert-success" role="alert">Поздравляем! Ваш рейтинг после {level} этапа отбора</p>
+                    <p class="alert alert-secondary" role="alert">составляет {rating}!</p>
+                    <p class="alert alert-danger" role="alert">Желаем удачи!</p>
                   </body>
                 </html>"""
 
