@@ -29,15 +29,14 @@ def image_mars():
                     <title>Привет, Марс!</title>
                   </head>
                   <body>
-                    <h1>Жди нас, Марс!</h1>
                     <img src={url_for('static', filename='img/mars.png')}>
                     <p>Вот она какая, красная планета!</p>
                   </body>
                 </html>"""
 
 
-@app.route('/promotion_image')
-def promotion_image():
+@app.route('/choice/<planet_name>', methods=["POST", "GET"])
+def promotion_image(planet_name):
     return f"""<!doctype html>
                 <html lang="en">
                   <head>
@@ -46,16 +45,16 @@ def promotion_image():
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
                     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
                     crossorigin="anonymous">
+                     <title>Привет, {planet_name}</title>
                     <link rel="stylesheet" href="{url_for('static', filename='css/style.css')}">
                   </head>
                   <body>
-                    <h1>Жди нас, Марс!</h1>
-                    <img src={url_for('static', filename='img/images.jpg')}>
-                    <p class="alert alert-primary" role="alert">Человечество вырастает из детства.</p>
-                    <p class="alert alert-success" role="alert">Человечеству мала одна планета.</p>
-                    <p class="alert alert-secondary" role="alert">Мы сделаем обитаемыми безжизненные пока планеты.</p>
-                    <p class="alert alert-danger" role="alert">И начнем с Марса!</p>
-                    <p class="alert alert-warning" role="alert">Присоединяйся!</p>
+                    <h1>Привет, {planet_name}!</h1>
+                    <p class="alert alert-primary" role="alert">Эта планета близка к земле</p>
+                    <p class="alert alert-success" role="alert">На ней много необходимых ресурсов.</p>
+                    <p class="alert alert-secondary" role="alert">На ней есть вода и атмосфера.</p>
+                    <p class="alert alert-danger" role="alert">На ней есть небольшое магнитное поле</p>
+                    <p class="alert alert-warning" role="alert">Наконец, она просто красива!</p>
                   </body>
                 </html>"""
 
